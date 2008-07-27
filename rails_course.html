@@ -1,0 +1,1021 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Intro to Ruby on Rails</title>
+<!-- metadata -->
+<meta name="generator" content="S5" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="200808" />
+<meta name="author" content="Dave Bryson" />
+<meta name="company" content="MITRE" />
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<!-- S5 JS -->
+<script src="ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+ <div id="controls"><!-- DO NOT EDIT --></div>
+ <div id="currentSlide"><!-- DO NOT EDIT --></div>
+ <div id="header"></div>
+ <div id="footer"></div>
+</div>
+
+<div class="presentation">
+
+<div class="slide">
+<h1>Introduction to Ruby on Rails</h1>
+<h3>Dave Bryson</h3>
+<h4>Lead Information Systems Engineer, MITRE</h4>
+</div>
+
+<div class="slide">
+  <h1>What we'll do...</h1>
+  <ul>
+    <li>Rails History</li>
+    <li>Install and Setup</li>
+    <li>Ruby Language</li>
+    <li>Rails</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>History</h1>
+  <ul>
+    <li>Born as the result of a project</li>
+    <li>Released July 2004</li>
+    <li>Open-Source (MIT)</li>
+    <li>David Heinemeier Hansson and 37 Signals</li>
+    <li>Opinionated Software</li>
+    <li>DRY principal</li>
+    <li>Full stack framework</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Install and Setup</h1>
+  <ol>
+    <li>
+      Get Ruby: http://www.ruby-lang.org/en/downloads/ 
+    </li>
+    <li>Get Rails:
+      <br/>
+      gem install rails -y
+      <br/>
+      gem install rails -p http://gatekeeper-w.mitre.org
+    </li>
+    <li>Install a database</li>
+  </ol>
+</div>
+
+<div class="slide">
+  <h1>IDEs</h1>
+  <ul>
+    <li>Komodo Edit (cross-platform)</li>
+    <li>Aptana RadRails (cross-platform)</li>
+    <li>NetBeans (cross-platform)</li>
+    <li>IntelliJ (cross-platform)</li>
+    <li>E Text Editor (Windows)</li>
+    <li>MacroMates TextMate (Mac)</li>
+    <li>JEdit (cross-platform)</li>
+    <li>Emacs, Vi (cross-platform)</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Ruby</h1>
+  <ul>
+    <li>Interpreted.  Garbage Collection</li>
+    <li>Cross Platform</li>
+    <li>Dynamic Typing</li>
+    <li>Everything is an Object</li>
+    <li>Focus on Simplicity</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>String</h1>
+  <pre>
+    a = String.new("hello")
+    b = "Hello"
+
+    b.methods.sort
+    
+    'hello'
+    "Hello"   
+    
+    greeting = 'Hello + ' ' + 'Dave'
+    
+    name = "Dave"
+    greeting = "Hello #{name}" 
+   
+    "dave".upcase!
+    "".empty?
+  </pre>
+</div>
+  
+<div class="slide">
+  <h1>Numbers</h1>
+  <pre>
+    x = 2
+    y = 3.01
+    
+    5.to_s
+    
+    10.times do |value|
+       puts "Number: #{value}"
+    end
+
+    25.downto(10) do |value|
+      ...
+    end
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Symbols</h1>
+  <pre>
+    :dave
+    :dave.object_id
+  </pre>
+  Symbols are:
+  <ul>
+    <li>immutable</li>
+    <li>not garbage collected</li>
+    <li>used a lot for hash keys</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Array</h1>
+  <pre>
+    a = Array.new
+    a = []
+
+    # Create
+    b = [1,2,"dave",'a']
+    b << "hello"
+    
+    # Read	 
+    b[2]
+    b[1,3]
+    
+    # Update
+    b[2] = "bob"
+ 
+    # Delete
+    b.delete(2)
+
+    b.each do |value|
+     puts value
+    end
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Hash</h1>
+  <pre>
+    a = Hash.new
+    a = {}
+
+    # Create
+    b = {:one => 1, "name" => "dave"}
+    
+    # Read
+    b["name"]
+
+    # Update
+    b["name"] = "Bob"
+
+    # Delete
+    b.delete(:one)
+
+    b.each |k,v|
+      puts "Key: #{k} Value: #{v}"
+    end  
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Boolean</h1>
+  <ul>
+    <li>Objects evaluate to true EXCEPT false and nil</li>
+    <li>TrueClass, FalseClass</li>
+  </ul>
+  <br/>
+  <pre>
+    x = "test"
+    x.nil?
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>If and Unless</h1>
+  <table>
+    <tr>
+     <td>
+      <pre>
+       p = Person.new
+       if p
+        ...
+       end
+
+       x = 2
+       if x == 2
+        ...
+       elsif x == 3
+        ...
+       else
+        ...
+       end
+      </pre>
+     </td>
+     <td>
+     <pre>
+      balance = 10
+      if not balance == 0
+        # spend some money!
+      end
+
+      unless balance == 0 
+        # spend some money!
+      end
+     </pre>
+     </td>
+    </tr>
+  </table>
+</div>
+
+<div class="slide">
+  <h1>case</h1>
+  <pre>
+   case x
+    when 2
+       ...
+    when 3..6
+     ...
+    else
+   end
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Object is the parent of all</h1>
+  <pre>
+   o = Object.new
+   o.methods.sort
+   
+
+   o.respond_to?(:hello)
+   o.send(:methods)
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Class</h1>
+  <pre>
+   class Person
+   end
+   
+   p = Person.new
+   p.methods
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Instance Methods and Variables</h1>
+  <pre>
+  class Person
+    attr_accessor :first, :last
+
+    def initialize(fn,ln)
+      @first = fn
+      @last = ln
+    end
+
+    def fullname
+      "My name is #{@first} #{@last}"
+    end
+  end
+  </pre>
+</div>
+
+
+<div class="slide">
+  <h1>Class Methods and Variables</h1>
+  <pre>
+   class Video
+     @@mime_type = 'video/mpeg'
+    
+     def Video.converter(input)
+      puts "Convert video here..."
+     end
+   end
+
+   Video.converter(...)
+  </pre>
+   Better yet use <i>self</i>
+  <br/>
+  <pre>
+    def self.converter(input)
+     ...
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Lab</h1>
+  Build a phonebook class. With the class you should be able to:
+  <ul>
+    <li>add a lastname and phone number</li>
+    <li>list all lastnames and  phone numbers</li>
+    <li>get a phone number given the lastname</li>
+  </ul>
+  <br/><br/>
+  <i>hint: use a hashtable</i>
+</div>
+
+<div class="slide">
+  <h1>Inheritance</h1>
+  <pre>
+    class Human
+
+      def walk
+        puts "hey I'm moving"
+      end 
+
+    end
+
+    class Person < Human
+    end
+   </pre>
+</div>
+
+<div class="slide">
+  <h1>Modules</h1>
+  Modules don't have instances!
+  <br/><br/>
+  <table border="0">
+   <th>Mixin</th>
+   <th>Namespace</th>
+   <tr>
+    <td>
+  <pre>
+    module Transporter
+      
+      def move
+        puts "i'm moving..."
+      end
+
+    end
+
+    class Human
+       include Transporter
+     ...
+  </pre>
+    </td>
+    <td>
+   <pre>
+    module Vehicle
+      class Truck
+      end
+    end
+
+    Vehicle::Truck.new()
+   </pre>
+    </td>
+  </tr>
+ </table>
+</div>
+
+<div class="slide">
+  <h1>Code Blocks</h1>
+  <br/>
+  Attach a method (block) to another method
+  <pre>    
+    def test_yield
+       puts "Start"
+       yield
+       puts "Stop"
+    end
+
+    test_yield{ puts "in the middle"}
+
+    test_yield do
+       puts...
+    end
+  </pre>
+</div>
+
+<div class="slide">
+<h1>Method missing</h1>
+  <pre>
+    class Person
+
+       def method_missing(name)
+         puts "don't know what #{name} is!" 
+       end
+
+    end
+
+    p = Person.new
+    p.yo
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Lab</h1>
+  <p>
+   Write a module named PhoneBookHelper that provides a method called "print_info".  
+  </p>
+  <p>
+   Given a lastname and phone number,
+   "print_info" will pretty print the information.  Use this module in your PhoneBook class.
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Rails</h1>
+  <ul>
+    <li>Convention over Configuration</li>
+    <li>MVC</li>
+    <li>DRY</li>
+    <li>Stay in Ruby</li>
+    <li>Fast development cycle</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>MVC flow</h1>
+  <br/>
+  <center>
+    <img src="images/mvc-architecture.gif" width="450px" height="400px" />
+  </center>
+</div>
+
+<div class="slide">
+  <h1>Request Cycle</h1>
+  <br/>
+  <center>
+    <img src="images/request_cycle.png" />
+  </center>
+</div>
+
+
+<div class="slide">
+  <h1>Directory Structure</h1>
+  <table>
+    <tr>
+     <td>
+       <img src="images/DirectoryStructure.jpg"/>
+     </td>
+     <td>
+       Lets generate an app:
+      <pre>
+      rails myblog -d 'mysql'
+     </pre>
+     </td>
+    </tr>
+  </table>
+</div>
+
+<div class="slide">
+  <h1>Rake</h1>
+  <ul>
+    <li>like Make or Ant</li>
+    <li>automate tasks</li>
+    <li>"rake -T"</li>
+    <li>Can add your own under lib/tasks</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Environment</h1>
+  <ul>
+    <li>development</li>
+    <li>production</li>
+    <li>test</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Scripts</h1>
+  <ul>
+    <li>about</li>
+    <li>console</li>
+    <li>generate</li>
+    <li>plugin</li>
+    <li>server</li>
+    <li>runner</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>What we'll build...</h1>
+  <ul>
+    <li>Simple Blog</li>
+    <li>Users and Articles</li>
+    <li>Authentication</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Controller Environment</h1>
+   params[]
+   <pre>
+     @value = params[:name]
+     @value = params[:user][:lastname]
+   </pre>
+   session[]
+   <pre>
+     id = session[:user_id]
+   </pre>
+   flash[]
+   <pre>
+     # in the controller
+     flash[:notice] = "My logic is undeniable"
+
+     # in the view
+     &lt;%= flash[:notice] %&gt;
+   </pre>
+   logger.info(),  warn(), error()
+</div>
+
+<div class="slide">
+  <h1>Writing a Controller</h1>
+  <pre>
+   class BlogController < ApplicationController
+     
+     def index
+       # Dummy data for now...
+       @entries = ["a","b","c","d"]
+
+       render :action => 'index'
+     end
+
+   end
+  </pre>
+    http://localhost/blog or http://localhost/blog/index
+ </div>
+
+<div class="slide">
+  <h1>Rendering</h1>
+  <pre>
+   # Render an action
+   render :action => "show"
+
+   # Render the  partial _details.html.erb 
+   render :partial => 'details'
+
+   # Render text
+   render :text => "Hello World"
+
+   # Render JSON
+   render :json => {:name => "dave"}
+
+   # render XML
+   render :xml => person.to_xml
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Redirect</h1>
+  <pre>
+    # Redirect to another action in the same controller
+    redirect_to :action => :index
+
+    # Redirect to another controller and action
+    redirect_to :controller => :store, :action => :buy, :id => 1
+ 
+    # Redirect to a URL
+    redirect_to "http://mitre.org"
+  </pre>
+  <br/>
+  Why redirect versus render?
+</div>
+
+
+<div class="slide">
+  <h1>View</h1>
+  <ul>
+    <li>Responsible for rendering the response</li>
+    <li>Controller decides what view to use</li>
+    <li>part of ActionPack</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Templates</h1>
+  <ul>
+    <li>Where we mix html and a little code</li>
+    <li>live in "app/views/{controller_name}/{action}"</li>
+    <li>have access to the same variables as the controller 
+      ( params, session, etc...)</li>
+    <li>Pass instance variables from controller to template "@value"</li>
+    <li>mime-types: html, json, xml, js, iphone</li>
+  </ul>
+  <br/>
+  <pre>
+    index.html.erb
+    index.xml.erb
+    index.iphone.erb
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Template tags</h1>
+  <ul>
+    <li>Output the code to the page:
+      <pre>&lt;%= ruby code %&gt</pre>
+    </li>
+    <li>Evaluate Ruby code without output:
+      <pre>&lt;% code %&gt;</pre>
+    </li>
+  </ul>
+  <br/>
+  <pre>
+    @people = Person.find(:all)
+
+    &lt;html&gt;
+     &lt;body&gt;
+      &lt;% for person in @people %&gt; 
+        Name: &lt%= person.name %&gt;
+      &lt;% end %&gt;
+     ...  
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Layout</h1>
+  <ul>
+    <li>Used for the common "shell" of your app<br/> 
+      (nav bar, footer, etc...)</li>
+    <li>Has access to same data</li>
+    <li>Must contain <pre>&lt%= yield %&gt;</pre></li>
+    <li>Each controller may have it's own layout.
+      <br/><br/>
+      "HelloController -> layouts/hello.html.erb"
+    </li> 
+    <li>A template named "application.html.erb" will serve all
+    </li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Helpers</h1>
+  <ul>
+    <li>Keep logic out of the templates (html)</li>
+    <li>helpers are written as methods in a module</li>
+    <li>see "app/helpers/{controller name}_helper.rb"</li>
+    <li>Rails comes pre-loaded with a lot of useful helpers</li>
+  </ul>
+  <pre>
+    # UrlHelper
+    &lt%= link_to 'home', :controller => 'main', :action => 'index' %&gt;
+  </pre>
+  <br/>
+  Worth the time to become familiar with the docs!
+</div>
+
+<div class="slide">
+  <h1>Example Helper</h1>
+   app/helpers/application_helper.rb
+  <pre>
+    module ApplicationHelper
+      def login_logout_menu
+        if session[:user_id]
+          link_to "Logout", :controller => "accounts", 
+                            :action => "logout"
+        else
+          link_to "Login", :controller => "accounts", 
+                           :action => "login"
+        end
+      end
+    end
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Models</h1>
+  <ul>
+    <li>Each Database table maps to a Ruby class</li>
+    <li>Table names are plural, models (classes) are singular</li>
+    <li>All tables contain a unique id as the primary key</li>
+    <li>Most popular databases supported: (mysql,postgres,oracle,etc...)</li>
+    <li>Tables are created with migrations</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Model Example</h1>
+  <pre>
+    create table articles(
+      title varchar(255),
+      body text
+   )
+
+   class Article < ActiveRecord::Base
+   end
+
+   a = Article.new
+   a.attributes
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Migrations</h1>
+  <ul>
+    <li>Way to evolve your database</li>
+    <li>Stay in Ruby</li>
+    <li>Database independent</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Transformations</h1>
+  <ul>
+    <li>create table</li>
+    <li>drop table</li>
+    <li>add,remove,rename a column</li>
+    <li>add, remove an index</li>
+    <li>use 'execute' to run raw SQL</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Creating the Articles Table</h1>
+  <pre>
+   class ArticlesTable < ActiveRecord::Migration
+     def self.up
+       create_table :articles do |t|
+        t.string :title
+	t.text :body
+        t.timestamps
+       end
+     end
+
+     def self.down
+       drop_table :articles
+     end
+   end
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Create</h1>
+  <pre>
+    a = Article.new
+    a.title = "Hello there"
+    a.body = "This is the post..."
+    a.save
+
+    a = Article.create({:title => "hello there", 
+                        :body => "this is a post..."})
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Read</h1>
+  <pre>
+    Article.find(1)
+    
+    Article.find([1,3,7])
+    
+    Article.find(:first, :conditions => ["title = ?","hello there"])
+
+    Article.find(:all, :conditions => ["title = ?","Hello there"], 
+                       :order => "title ASC", :limit => 10) 
+
+    # Dynamic finders
+    Article.find_all_by_title("Hello There")
+
+    Article.find_by_title("dave")
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Update</h1>
+  <pre> 
+   a = Article.find(1)
+   
+   a.update_attribute(:title, "Hello there changed")
+
+   a.update_attributes({:title => "Changed!", :author => "bob"})
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Delete</h1>
+  <ul>
+    <li>Delete: </li>
+    <li>Destroy:</li>
+    <li>Best to use destroy</li>
+  </ul>
+  <pre>
+
+    Article.destroy(1)
+
+    Article.destroy([1,2,3])
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Creating Articles</h1>
+  <img src="images/creating_an_article.jpg" />
+</div>
+
+<div class="slide">
+  <h1>Validation</h1>
+  <ul>
+    <li>Model lifecycle</li>
+    <li>Many helpers included</li>
+  </ul>
+  <pre>
+    class Article &lt; ActiveRecord::Base
+      validates_presense_of :title
+    end
+  </pre>
+</div>
+				   
+<div class="slide">
+  <h1>Lab</h1>
+  <p>
+    Create a "show" action and view.
+  </p>
+  <p> 
+    When a user clicks on the title of
+    an article, show the article on a separate page.  
+  </p>
+</div>
+
+<div class="slide">
+  <h1>Model Associations</h1>
+  <ul>
+    <li>Support: 1-1, 1-many, many-many</li>
+    <li>maps to: has_one, has_many, has_and_belongs_to_many</li>
+    <li>declare it and let rails do the work</li>
+    <li>belongs_to on the model who's table contains the foreign key</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Blog Association</h1>
+  Each User has many Articles
+  <pre>
+   class User &lt; ActiveRecord::Base
+     has_many :articles
+   end
+
+   class Article &lt; ActiveRecord::Base
+     belongs_to :user
+   end
+
+   # What's added
+   user.articles
+   article.user
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Authentication</h1>
+  <ul>
+    <li>Basic</li>
+    <li>Sessions</li>
+    <li>Controller Filters</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Basic</h1>
+  <pre>
+class ArticleController &lt; ApplicationController
+   UN, PW = "dave", "dave"
+
+   before_filter :authenticate
+
+   private
+   def authenticate
+
+     authenticate_or_request_with_http_basic do |un,pw|
+       un == UN && pw == PW
+     end
+
+   end
+end
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Session</h1>
+  <ul>
+    <li>Client needs Cookies</li>
+    <li>message digest using SHA(secret_key, data)</li>
+    <li>Can't be tampered with on the browser</li>
+    <li>Limit 4K</li>
+    <li>DON'T STORE ENTIRE OBJECT IN A SESSION</li>
+  </ul>
+</div>
+
+<div class="slide">
+ <h1>Filters</h1>
+ <ul>
+   <li>Wrap your actions</li>
+   <li>Types:
+     <ul>
+       <li>before_filter</li>
+       <li>after_filter</li>
+       <li>around_filter</li>
+     </ul>
+   </li>
+   <li>options: <pre>
+       :only => [:add,:create]  
+       :except => [:create]</pre></li>
+   <li>Can also skip filters </li>
+ </ul>
+</div>
+
+<div class="slide">
+  <h1>Testing</h1>
+  <ul>
+    <li>Fixtures: define test data</li>
+    <li>Functional: Test Controllers</li>
+    <li>Unit: Test Models</li>
+    <li>Integration: All together now...</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>REST and Scaffold</h1>
+  Build an API fast...
+  <pre>
+    # Do this all on one line...
+   ./script/generate scaffold User \ 
+        username:string passwd:string \ 
+        email:string created_at:datetime updated_at:datetime
+
+    
+    # The client
+    require 'active_resource'
+    class User < ActiveResource::Base
+      self.site="http://localhost:3000"
+    end
+  </pre>
+</div>
+
+<div class="slide">
+  <h1>Plugins</h1>
+  <ul>
+    <li>Extend just about any part of Rails</li>
+    <li>self-contained</li>
+    <li>try: <pre>./script/plugin</pre></li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Deploying the app</h1>
+  <ul>
+    <li>Apache/Nginx -&gt; Mongrel</li>
+    <li>Apache mod_rails (Passenger)</li>
+    <li>or just Mongrel</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Misc...</h1>
+  <ul>
+    <li>JRuby</li>
+    <li>Stand alone ActiveRecord</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Keep learning</h1>
+  <ul>
+    <li>Write code!</li>
+    <li>Study open-source (especially Rails)</li>
+    <li>READ THE DOCS!</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1>Other Sources</h1>
+  <ul>
+    <li>Ruby for Rails (David Black)</li>
+    <li>Programming Ruby (Dave Thomas)</li>
+    <li>Rails Recipes (Chad Fowler)</li>
+  </ul>
+</div>
+
+
+</div>
+</body>
+</html>

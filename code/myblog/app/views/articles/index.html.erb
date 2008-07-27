@@ -1,0 +1,7 @@
+<h2>Lastest Articles</h2>
+
+<% for a in @articles %>
+  <%=link_to a.title, :action => 'show', :id => a %></b>
+  <p><%=h a.body %></p>
+  <%=h posted_on(a) %>
+<% end %>

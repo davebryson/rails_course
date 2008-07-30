@@ -11,5 +11,8 @@
   <%= login_logout_menu %>
   <div style="color: green;"><%=h flash[:notice] %></div>
   <%= yield %>
+  <br/>
+  <br/>
+  contact: <%= mail_to('bob@here.com') %>
 </body>
 </html>

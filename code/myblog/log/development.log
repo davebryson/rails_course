@@ -1,0 +1,76 @@
+
+
+Processing UsersController#create (for 127.0.0.1 at 2008-07-29 22:51:39) [POST]
+  Session ID: 4e8d838db7326bfdc3f93344941736b9
+  Parameters: {"user"=>{"passwd"=>"smith", "username"=>"bob"}, "format"=>"xml", "action"=>"create", "controller"=>"users"}
+  [4;36;1mSQL (0.000119)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000065)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (0.001579)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.001185)[0m   [0mBEGIN[0m
+  [4;36;1mUser Create (0.000244)[0m   [0;1mINSERT INTO `users` (`passwd`, `updated_at`, `username`, `email`, `created_at`) VALUES('smith', '2008-07-30 03:51:39', 'bob', NULL, '2008-07-30 03:51:39')[0m
+  [4;35;1mSQL (0.000802)[0m   [0mCOMMIT[0m
+Completed in 0.20417 (4 reqs/sec) | Rendering: 0.11302 (55%) | DB: 0.00399 (1%) | 201 Created [http://localhost/users.xml]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-07-29 22:51:52) [GET]
+  Session ID: efc21b22cb97b13a4269f09a72af6cf5
+  Parameters: {"format"=>"xml", "action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.000299)[0m   [0;1mSELECT * FROM `users` [0m
+  [4;35;1mUser Columns (0.001753)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 0.01280 (78 reqs/sec) | Rendering: 0.00545 (42%) | DB: 0.00205 (16%) | 200 OK [http://localhost/users.xml]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-07-29 22:52:49) [GET]
+  Session ID: 179249660eee8061d7f88d6758dda3bb
+  Parameters: {"format"=>"xml", "action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.000282)[0m   [0;1mSELECT * FROM `users` [0m
+  [4;35;1mUser Columns (0.002566)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 0.01741 (57 reqs/sec) | Rendering: 0.00936 (53%) | DB: 0.00285 (16%) | 200 OK [http://localhost/users.xml]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2008-07-29 22:53:11) [GET]
+  Session ID: 0e2476c3f9c2a96e18f5a1dbc86728ad
+  Parameters: {"format"=>"xml", "action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (0.003299)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000328)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 0.01455 (68 reqs/sec) | Rendering: 0.00487 (33%) | DB: 0.00363 (24%) | 200 OK [http://localhost/users/1.xml]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2008-07-29 22:53:16) [GET]
+  Session ID: 2354fe498a1b13797f66c59ead07bce6
+  Parameters: {"format"=>"xml", "action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (0.003025)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000347)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 0.01313 (76 reqs/sec) | Rendering: 0.00363 (27%) | DB: 0.00337 (25%) | 200 OK [http://localhost/users/1.xml]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2008-07-29 22:53:28) [GET]
+  Session ID: c30f80e327c183ca844adc584bc60276
+  Parameters: {"format"=>"xml", "action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Columns (0.002781)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001160)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Completed in 0.01576 (63 reqs/sec) | Rendering: 0.00549 (34%) | DB: 0.00394 (25%) | 200 OK [http://localhost/users/2.xml]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2008-07-29 22:53:30) [GET]
+  Session ID: 611d1f1795e2b2aae15a00af25ed96f7
+  Parameters: {"format"=>"xml", "action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Columns (0.003069)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001584)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Completed in 0.01435 (69 reqs/sec) | Rendering: 0.00340 (23%) | DB: 0.00465 (32%) | 200 OK [http://localhost/users/2.xml]
+
+
+Processing UsersController#index (for 127.0.0.1 at 2008-07-29 22:55:48) [GET]
+  Session ID: cca6d0b59a0929d428e204a177aeeb6c
+  Parameters: {"format"=>"xml", "action"=>"index", "controller"=>"users"}
+  [4;36;1mUser Load (0.000279)[0m   [0;1mSELECT * FROM `users` [0m
+  [4;35;1mUser Columns (0.002361)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 0.01411 (70 reqs/sec) | Rendering: 0.00573 (40%) | DB: 0.00264 (18%) | 200 OK [http://localhost/users.xml]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2008-07-29 22:55:52) [GET]
+  Session ID: 1eb21dccdcf3b3ab8fc4bd01fa48e1e2
+  Parameters: {"format"=>"xml", "action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (0.004633)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000940)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 0.01409 (70 reqs/sec) | Rendering: 0.00235 (16%) | DB: 0.00557 (39%) | 200 OK [http://localhost/users/1.xml]
